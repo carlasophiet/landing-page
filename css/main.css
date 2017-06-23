@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,800')
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Muli', sans-serif;
+	
+	}
+body {
+	background-image: url("imgs/patron.jpg");
+	color:#5F5757;
+	
+}
+.contenedor{
+	width:90%;		
+}
+nav{
+	padding-top: 1%;
+}
+nav ul{
+	display:flex;
+	flex-direction: row;
+	list-style: none;
+	justify-content: space-around;
+	padding-top: 5%;
+	font-size: 1em;
+	font-weight: bold;
+}
+nav a{
+	color:#5F5757;
+}
+.slider{
+	padding-top: 2%;
+}
+.slider img{
+	width:100%;
+   /*height: 300px;*/
+}
+.primer-seccion{
+	padding-top: 5%;
+	background-color: #FFF;
+}
+.primer-seccion img{
+	width:100%;
+}
+.primer-seccion input{
+
+}
+.segunda-seccion{
+	padding-top:5%;
+	background-color: #FFF;
+}
+.segunda-seccion img{
+	width:100%;
+}
+form{
+	padding-top: 5%;
+	color:#312F2F;
+}
+#gracias-div{
+	padding-top: 2%;
+}
+
+#gracias{
+	background-color: #E28B8B;
+	font-weight: bolder;
+}
+.extra{
+	display:none;
+}
+.cabezaFlotante{
+	z-index: 2;
+	position: fixed;
+	bottom: 2em;
+	right:1em;
+	
+}
+footer{
+	padding-top:2%;
+	margin-top:5%;
+	background-color:#BAA4D7;
+
+	/*height:200px;*/
+}
+footer ul{
+	display:flex;
+	list-style: none;
+	flex-direction: row;
+	justify-content: space-around;
+	font-size: 2em;
+}
+footer i{
+	color:#686565;}
+
