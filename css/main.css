@@ -13,6 +13,9 @@ body {
 	color:#5F5757;
 	
 }
+a{
+	cursor: pointer;
+}
 .contenedor{
 	width:90%;		
 }
@@ -94,3 +97,22 @@ footer ul{
 footer i{
 	color:#686565;}
 
+/* ---------------------- Media Queries ---------------------- */
+
+/*----------------------- Tablet Landscape ------------------- */
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	#logo{
+		margin-left: 33%;
+	}
+}
+/*----------------------- Phone Landscape & Smaller ----------- */
+@media all and (max-width: 480px) {
+	nav ul{
+		display:none;
+	}
+	.cabezaFlotante{
+		display:none;
+	}
+
+	
+}

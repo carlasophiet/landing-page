@@ -1,13 +1,13 @@
 var errores= [];
 var opciones=['Elija su ciudad','Helsinki','Ubatuba','Pagoa','Cucamonga'];
-var slideimgs = ['imgs/slider1.jpg','imgs/slider2.jpg','imgs/slider3.jpg'];
+var slideimgs = ["imgs/slider1.jpg","imgs/slider2.jpg","imgs/slider3.jpg"];
 var imagen = $('#slider-img');
 var k=0;
 var interval;
 
 $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR TODO ESTO. SÓLO ANDA LO QUE ESTÁ ACÁ.
 
-	errores=[];//slider(){};
+	errores=[];
 	var select = $('#ciudad'); 
 	for (i=0;i< opciones.length;i++){
 		value= i; //generalmente se pone i + 1 para no usar el cero, YO NECESITO EL CERO PARA QUE SER SI SABE ELIGIÓ O NO.
@@ -30,13 +30,13 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 			//$('#3').submit();
 			var datos=$('#3').serialize();
 			console.log(datos);
-			$.ajax({
+			/*$.ajax({
 				url: "http://mariabelenalegre.com/ada-api/api.php",
 				type:"post",
 				success: function (response){}//function RESPONSE
 
 			});//termina ajax
-			/*$('#gracias').show();  //método de jquery para mostrar
+			$('#gracias').show();  //método de jquery para mostrar
 			$('#gracias').append('<p>¡Gracias!</p>');*/
 			$('#3')[0].reset();
 			console.log('estoy');
@@ -80,32 +80,30 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 		}
 	});
 		//función MODAL		
-		$('.chiquita').on('click', function(){	
+	$('.chiquita').on('click', function(){	
 		id = $(this).data('id');
 		img = id;
 		console.log('estoy');
 		$('#imagenGrande').attr('src', img);
 		
-	});
-		//SLIDER
-		slider();
+	slider();
 
-		$('#sliderlink').on('click', function(){
-				//console.log('estoy');
-				slide();
-	
-			});
+	$('#sliderlink').on('click', function(){
+		
+		slide();
+		
+		});
 
+		});		
 });//TERMINA DOCUMENT READY
 //DESPUÉS DE ACÁ, VAN LAS FUNCIONES QUE LLAMO ARRIBA.
-	//function (validarSelect){}
 
-	//FUNCTION SLIDE
 function slide() {
+	console.log('adentro slide');
 $(imagen).fadeOut('slow', function() {
-	//console.log('hola');
+
 	if (k==(slideimgs.length-1)) {
-		k=0;
+		k=0
 	} else {k++};
 
 	console.log(slideimgs[k]);	
@@ -114,10 +112,10 @@ $(imagen).fadeOut('slow', function() {
 	});
 };
 
- //FUNCTION SLIDER!
+
 function slider() {
 	interval = setInterval(slide, 4000);
-	//console.log('slider');
+
 	$('#sliderlink').on({
 		mouseover: function(){
 		clearInterval(interval);		
