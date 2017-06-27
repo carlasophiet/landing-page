@@ -27,19 +27,27 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 		validarEdad($('#edad').val());
 		validarSelect($('#ciudad').val());
 		if (errores.length == 0){ //si el array de los errores es igual a cero, SUBMIT
-			//$('#3').submit();
 			var datos=$('#3').serialize();
-			console.log(datos);
-			/*$.ajax({
-				url: "http://mariabelenalegre.com/ada-api/api.php",
+			console.log(datos);	
+			$.ajax({
+				url: "api/api.php",
 				type:"post",
-				success: function (response){}//function RESPONSE
-
+				data: datos,
+				success: function (response){
+					//response vuelve desde la url php
+					if(response){
+						console.log(response);
+						console.log('todo ok');
+						alert('formulario enviado');
+					}else{
+						alert('error');	
+						location.reload(); //recarga misma página
+						}
+				}//function RESPONSE
 			});//termina ajax
-			$('#gracias').show();  //método de jquery para mostrar
+			/*$('#gracias').show();  //método de jquery para mostrar
 			$('#gracias').append('<p>¡Gracias!</p>');*/
 			$('#3')[0].reset();
-			console.log('estoy');
 			$('#gracias').html('');
 			$('#gracias').append('<p>¡Gracias!</p>');
 		}else{
