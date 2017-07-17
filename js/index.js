@@ -96,18 +96,19 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 	
     $('#slider ul li:last-child').prependTo('#slider ul');
     setInterval(function () {
-        moveRight();
+        moveRight('#slider ul','#slider ul li:first-child');
     }, 5000);
 
 		
 });//TERMINA DOCUMENT READY
 //DESPUÉS DE ACÁ, VAN LAS FUNCIONES QUE LLAMO ARRIBA.
-function moveRight() {
-        $('#slider ul').animate({
+
+function moveRight(lista,hijo) {
+        $(lista).animate({
             left: - slideWidth
         }, 200, function () {
-            $('#slider ul li:first-child').appendTo('#slider ul');
-            $('#slider ul').css('left', '');
+            $(hijo).appendTo(lista);
+            $(lista).css('left', '');
         });
     };
 

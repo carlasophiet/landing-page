@@ -37,6 +37,7 @@ nav a{
 #slider{
 	position: relative;
 	margin: auto;
+	margin-left: -3%;
 	width: 100%;
 	overflow: hidden;
 }
@@ -59,9 +60,6 @@ nav a{
 .primer-seccion{
 	padding-top: 5%;
 	background-color: #FFF;
-}
-.primer-seccion img{
-	width:100%;
 }
 
 .segunda-seccion{
@@ -126,14 +124,45 @@ footer i{
 		margin-left: 33%;
 	}
 }
-/*----------------------- Phone Landscape & Smaller ----------- */
+/*----------------------- Phone Portrait & Smaller ----------- */
 @media all and (max-width: 480px) {
 	nav ul{
 		display:none;
 	}
+	nav figure{
+		margin-left:10%;
+	}
 	.cabezaFlotante{
 		display:none;
 	}
+	#slider{
+		margin-left:-10%;
+	}
 
+	#primera{
+		display:none;
+	}
+	.apartado{
+		margin-top:3%;
+	}
+	.redes-sociales{
+		margin-left:-5%;
+		margin-top:2%;
+	}
 	
+}
+/*---------------------Phone LandScape----------------*/
+@media all and (min-width: 481px) and (max-width: 769px) {
+	nav figure{
+		margin-left:25%;
+	}
+	.cabezaFlotante{
+		display:none;
+	}
+	#primera{
+		display:none;
+	}
+	.apartado{
+		margin-top:3%;
+	}
 }
