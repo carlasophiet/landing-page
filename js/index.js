@@ -93,6 +93,7 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 		img = id;
 		console.log('estoy');
 		$('#imagenGrande').attr('src', img);
+			});	//TERMINA CHIQUITA
 		
 	slider();
 
@@ -100,42 +101,11 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 		
 		slide();
 		
-		});
+		});//TERMINA SLIDERLINK
 
-		});		
+		
 });//TERMINA DOCUMENT READY
 //DESPUÉS DE ACÁ, VAN LAS FUNCIONES QUE LLAMO ARRIBA.
-
-function slide() {
-	console.log('adentro slide');
-$(imagen).fadeOut('slow', function() {
-
-	if (k==(slideimgs.length-1)) {
-		k=0
-	} else {k++};
-
-	console.log(slideimgs[k]);	
-	$(imagen).attr('src',slideimgs[k]).fadeIn('slow');
-
-	});
-};
-
-
-function slider() {
-	interval = setInterval(slide, 4000);
-
-	$('#sliderlink').on({
-		mouseover: function(){
-		clearInterval(interval);		
-		},
-
-		mouseleave: function(){
-		slider();		
-		}
-	});
-
-};
-
 
 	function validarSelect(opcion){
 		if (opcion == 0){
@@ -211,3 +181,38 @@ function soloLetras(x) { //Valido apellido y nombre con expresion regular//
 	}
 	return false;
 	}
+
+
+
+
+
+	function slide() {
+	
+	$(imagen).fadeOut('slow', function() {
+
+	if (k==(slideimgs.length-1)) {
+		k=0
+	} else {k++};
+
+	console.log(slideimgs[k]);	
+	$(imagen).attr('src',slideimgs[k]).fadeIn('slow');
+
+	});
+};
+
+
+function slider() {
+	
+	interval = setInterval(slide, 4000);
+
+	$('#sliderlink').on({
+		mouseover: function(){
+		clearInterval(interval);		
+		},
+
+		mouseleave: function(){
+		slider();		
+		}
+	});
+
+};
