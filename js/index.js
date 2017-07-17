@@ -1,9 +1,9 @@
 var errores= [];
 var opciones=['Elija su ciudad','Helsinki','Ubatuba','Pagoa','Cucamonga'];
-var slideimgs = ["imgs/slider1.jpg","imgs/slider2.jpg","imgs/slider3.jpg"];
-var imagen = $('#slider-img');
-var k=0;
-var interval;
+var slideCount = $('#slider ul li').length;
+var slideWidth = $('#slider ul li').width();
+var slideHeight = $('#slider ul li').height();
+var sliderUlWidth = slideCount * slideWidth;
 
 $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR TODO ESTO. SÓLO ANDA LO QUE ESTÁ ACÁ.
 
@@ -15,8 +15,6 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 		select.append(opcion);
 
 	}//for para select
-
-
 	//
 	$('#gracias').hide();
 	$('#ingresar').on('click', function(){
@@ -56,7 +54,6 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 				$('#gracias').append(errores[i]);
 		   }
 		}
-
 		/*$('#limpiar').on('click',function(){
 			$('#3')[0].reset();
 			console.log('estoy');
@@ -71,11 +68,9 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 			$("html,body").animate({scrollTop:$(id).offset().top},800)
 		});
 			
-			
-	
 		//termina función scroll
 		//función VER MÁS BOTON
-				$(".verMas").on("click",function(){
+		$(".verMas").on("click",function(){
 			var vid= $(this).data('id');
 			var id= '#'+ vid;
 			if($(id).css('display')==="none"){
@@ -94,18 +89,27 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 		console.log('estoy');
 		$('#imagenGrande').attr('src', img);
 			});	//TERMINA CHIQUITA
-		
-	slider();
 
-	$('#sliderlink').on('click', function(){
-		
-		slide();
-		
-		});//TERMINA SLIDERLINK
+	$('#slider').css({ width: slideWidth, height: slideHeight });
+	
+	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+	
+    $('#slider ul li:last-child').prependTo('#slider ul');
+    setInterval(function () {
+        moveRight();
+    }, 5000);
 
 		
 });//TERMINA DOCUMENT READY
 //DESPUÉS DE ACÁ, VAN LAS FUNCIONES QUE LLAMO ARRIBA.
+function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
 
 	function validarSelect(opcion){
 		if (opcion == 0){
@@ -181,38 +185,3 @@ function soloLetras(x) { //Valido apellido y nombre con expresion regular//
 	}
 	return false;
 	}
-
-
-
-
-
-	function slide() {
-	
-	$(imagen).fadeOut('slow', function() {
-
-	if (k==(slideimgs.length-1)) {
-		k=0
-	} else {k++};
-
-	console.log(slideimgs[k]);	
-	$(imagen).attr('src',slideimgs[k]).fadeIn('slow');
-
-	});
-};
-
-
-function slider() {
-	
-	interval = setInterval(slide, 4000);
-
-	$('#sliderlink').on({
-		mouseover: function(){
-		clearInterval(interval);		
-		},
-
-		mouseleave: function(){
-		slider();		
-		}
-	});
-
-};
