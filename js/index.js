@@ -5,7 +5,7 @@ var slideWidth = $('#slider ul li').width();
 var slideHeight = $('#slider ul li').height();
 var sliderUlWidth = slideCount * slideWidth;
 
-$(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR TODO ESTO. SÓLO ANDA LO QUE ESTÁ ACÁ.
+$(document).ready(function(){ 
 
 	errores=[];
 	var select = $('#ciudad'); 
@@ -19,6 +19,7 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 	$('#gracias').hide();
 	$('#ingresar').on('click', function(){
 		errores=[];
+		$('#gracias').html('');
 		console.log('funcionó!');
 		validarEmail($('#email').val());
 		validarNombre($('#nombre').val());
@@ -43,14 +44,15 @@ $(document).ready(function(){ //ESPERA QUE CARGUE HTML ANTES DE EMPEZAR A ANDAR 
 						}
 				}//function RESPONSE
 			});//termina ajax
-			/*$('#gracias').show();  //método de jquery para mostrar
-			$('#gracias').append('<p>¡Gracias!</p>');*/
 			$('#3')[0].reset();
 			$('#gracias').html('');
+			$('#gracias').css('background-color','#7AF77D');
 			$('#gracias').append('<p>¡Gracias!</p>');
 		}else{
 			$('#gracias').show(); //sino, recorrer array: en el div con ID error pusheo los errores nombrados en las funciones
 			for (i=0;i<errores.length;i++){ 
+				
+				$('#gracias').css('background-color','#E28B8B');
 				$('#gracias').append(errores[i]);
 		   }
 		}
